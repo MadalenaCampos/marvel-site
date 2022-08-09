@@ -11,10 +11,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Modulos do NgZorro
-import { NzIconModule } from 'ng-zorro-antd/icon';
+// Módulos do NgZorro
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 // Solução para problema com ícones do NG-ZORRO
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
 import {
   AccountBookFill,
@@ -34,7 +35,12 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+
+    // Módulos do NgZorro
     NzIconModule,
+    NzButtonModule,
+
+    // Solução para problema com ícones do NG-ZORRO
     NzIconModule.forRoot(icons),
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],

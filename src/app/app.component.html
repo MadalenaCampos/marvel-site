@@ -1,7 +1,18 @@
-<!-- NG-ZORRO -->
-<!-- <a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
-  <img height="300" src="https://img.alicdn.com/tfs/TB1X.qJJgHqK1RjSZFgXXa7JXXa-89-131.svg">
-</a> -->
+<div class="header-da-pagina">
+  <div class="header-da-pagina-menu">
+    <button nz-button nzShape="round">
+      <i nz-icon nzType="home" nzTheme="fill"></i>
+    </button>
+    <button nz-button nzShape="round">Characters</button>
+    <button nz-button nzShape="round">Comics</button>
+    <button nz-button nzShape="round">Series</button>
+    <button nz-button nzShape="round">Stories</button>
+  </div>
+  <div class="header-da-pagina-logo">
+    <img src="assets/images/logo-marvel.svg" alt="logo" />
+  </div>
+</div>
 
-<i nz-icon nzType="home" nzTheme="outline"></i>
-
+<div class="conteudo-da-pagina-selecionado">
+  <router-outlet></router-outlet>
+</div>

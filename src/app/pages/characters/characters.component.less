@@ -29,3 +29,41 @@
     }
   }
 }
+
+.lista-de-personangens {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 129px;
+  align-items: center;
+  justify-items: center;
+
+  &-item {
+    &-sobre {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &-nome {
+        h2 {
+          margin: 0;
+          font-weight: 700;
+          font-size: 18px;
+          color: #ffffff;
+        }
+      }
+
+      &-detalhes {
+        button {
+          border: none;
+          background: #ed1d24;
+
+          font-size: 12px;
+          font-weight: 600;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

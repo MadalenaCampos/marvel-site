@@ -27,7 +27,7 @@ export class CharactersComponent implements OnInit {
 
   public getCharacters(): void {
     this.loadingCharacters = true;
-    this.charactersService.getCharacters().subscribe(
+    this.charactersService.getAllCharacters().subscribe(
       (data) => {
         this.message.success('Personagens carregados com sucesso!');
         this.characters = data.data.results;

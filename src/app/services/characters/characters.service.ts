@@ -1,9 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CharactersService {
+  PUBLIC_KEY = ''; // Use sua PUBLIC_KEY aqui!!!
+  HASH = '';
+  URL_API = `https://gateway.marvel.com:443/v1/public/characters?apikey=${this.PUBLIC_KEY}`;
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
+
+  getCharacters(): Observable<any> {
+    return this.http.get<any>(this.URL_API);
+  }
 }

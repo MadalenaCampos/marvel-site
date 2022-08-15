@@ -33,17 +33,26 @@
 .lista-de-personangens {
   margin-top: 16px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 129px;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 80px;
   align-items: center;
   justify-items: center;
 
   &-item {
+    &-imagem {
+      img {
+        width: 300px;
+        height: 300px;
+        border-radius: 22px !important;
+      }
+    }
+
     &-sobre {
-      margin-top: 8px;
+      margin-top: 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 8px;
 
       &-nome {
         h2 {

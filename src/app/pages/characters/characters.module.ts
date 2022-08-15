@@ -3,10 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { CharactersComponent } from './characters.component';
 
-import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
 import {
@@ -14,6 +10,13 @@ import {
   AlertFill,
   AlertOutline,
 } from '@ant-design/icons-angular/icons';
+import { CharactersService } from 'src/app/services/characters/characters.service';
+
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzMessageModule, NzMessageService } from 'ng-zorro-antd/message';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
 
 const icons: IconDefinition[] = [AccountBookFill, AlertOutline, AlertFill];
 
@@ -21,11 +24,14 @@ const icons: IconDefinition[] = [AccountBookFill, AlertOutline, AlertFill];
   declarations: [CharactersComponent],
   imports: [
     CommonModule,
-    NzInputModule,
-    NzAutocompleteModule,
     NzIconModule,
     NzIconModule.forRoot(icons),
-    NzButtonModule
+    NzInputModule,
+    NzAutocompleteModule,
+    NzButtonModule,
+    NzMessageModule,
+    NzSpinModule,
   ],
+  providers: [NzMessageService, CharactersService],
 })
 export class CharactersModule {}

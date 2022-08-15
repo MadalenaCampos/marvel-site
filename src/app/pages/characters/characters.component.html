@@ -14,18 +14,20 @@
 </div>
 
 <div class="lista-de-personangens">
-  <div class="lista-de-personangens-item">
+  <div class="lista-de-personangens-item" *ngFor="let item of characters">
     <div class="lista-de-personangens-item-imagem">
-      <img src="assets/images/morbius.png" width="200" alt="morbius" />
+      <img
+        src="{{ item.thumbnail.path }}.{{ item.thumbnail.extension }}"
+        [alt]="item.name"
+      />
     </div>
-
     <div class="lista-de-personangens-item-sobre">
       <div class="lista-de-personangens-item-sobre-nome">
-        <h2>Morbius</h2>
+        <h2>{{ item.name }}</h2>
       </div>
 
       <div class="lista-de-personangens-item-sobre-detalhes">
-        <button nz-button nzShape="round">Detalhes</button>
+        <button (click)="this.getCharacterDetail(this.item.id)" nz-button nzShape="round">Detalhes</button>
       </div>
     </div>
   </div>

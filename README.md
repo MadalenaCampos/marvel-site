@@ -3,7 +3,7 @@
 <img src="imagens-projeto/characters.png" alt="Pagina dos personagens" width="500">
 </div>
 
-# MarvelSite
+# Marvel Site
 
 > Site construido baseado na <a href="https://developer.marvel.com/"> 🔗 API Marvel</a>. Contém a exibição de: <b>personagens</b>, <b>comics</b>, <b>series</b> e <b>histórias</b>.
 
@@ -25,6 +25,36 @@
 - [ ] Página de Comics
 - [ ] Página de Séries
 - [ ] Página de Histórias
+
+## Download
+
+Computer Version:
+
+[![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/seu-usuario/seu-repositorio/releases)
+[![Linux](https://img.shields.io/badge/Linux-FF6600?style=for-the-badge&logo=linux&logoColor=white)](https://github.com/seu-usuario/seu-repositorio/releases)
+[![Mac OS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)](https://github.com/seu-usuario/seu-repositorio/releases)
+
+## 🚀 Instalando o projeto
+
+Siga estas etapas:
+
+Linux, macOS e Windows:
+```
+yarn install
+```
+```
+ng serve
+```
+
+## 📫 Contribuindo  
+
+Para contribuir, siga estas etapas:
+
+1. Bifurque este repositório.
+2. Crie um branch: `git checkout -b <nome_branch>`.
+3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
+4. Envie para o branch original: `git push origin marvel-site / <local>`
+5. Crie a solicitação de pull.
 
 ## 🤝 Colaboradores
 

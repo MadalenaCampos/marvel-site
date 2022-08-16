@@ -27,8 +27,24 @@
       </div>
 
       <div class="lista-de-personangens-item-sobre-detalhes">
-        <button (click)="this.getCharacterDetail(this.item.id)" nz-button nzShape="round">Detalhes</button>
+        <button
+          (click)="this.getCharacterDetail(this.item.id)"
+          nz-button
+          nzShape="round"
+        >
+          Detalhes
+        </button>
       </div>
     </div>
   </div>
+</div>
+
+<div class="loading">
+  <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
+  <nz-spin
+    nzSimple
+    [nzIndicator]="indicatorTemplate"
+    [nzSpinning]="loadingCharacters"
+  >
+  </nz-spin>
 </div>

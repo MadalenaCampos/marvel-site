@@ -31,11 +31,9 @@ export class CharactersComponent implements OnInit {
       (data) => {
         this.message.success('Personagens carregados com sucesso!');
         this.characters = data.data.results;
-
-        console.log(data);
       },
       (error) => {
-        this.message.error(error.message);
+        this.message.error(error.statusText + ' , tente novamente mais tarde!');
       },
       () => {
         this.loadingCharacters = false;

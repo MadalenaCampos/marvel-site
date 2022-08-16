@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CharactersComponent } from './characters.component';
+import { CharacterDetailModule } from 'src/app/modals/character-detail/character-detail.module';
 
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
@@ -24,6 +25,7 @@ const icons: IconDefinition[] = [AccountBookFill, AlertOutline, AlertFill];
   declarations: [CharactersComponent],
   imports: [
     CommonModule,
+    CharacterDetailModule,
     NzIconModule,
     NzIconModule.forRoot(icons),
     NzInputModule,

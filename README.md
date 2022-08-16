@@ -4,7 +4,7 @@
 
 <div style="display: flex;">
 <img src="imagens-projeto/home.png" alt="Home do site" width="500">
-<img src="imagens-projeto/characters.png" alt="Pagina dos personagens">
-<img src="imagens-projeto/characters-details.png" alt="Modal de detalhe dos personangens">
+<img src="imagens-projeto/characters.png" alt="Pagina dos personagens" width="500">
+<img src="imagens-projeto/characters-details.png" alt="Modal de detalhe dos personangens" width="500">
 </div>
 

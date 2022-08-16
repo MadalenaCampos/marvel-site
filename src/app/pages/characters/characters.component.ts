@@ -8,6 +8,7 @@ import { CharactersService } from 'src/app/services/characters/characters.servic
 interface Character {
   id: number;
   name: string;
+  description: string;
   thumbnail: {
     path: string;
     extension: string;
@@ -33,9 +34,9 @@ export class CharactersComponent implements OnInit {
   public getCharacters(): void {
     this.loadingCharacters = true;
     this.charactersService.getAllCharacters().subscribe(
-      (data) => {
+      ({ data }) => {
         this.message.success('Personagens carregados com sucesso!');
-        this.characters = data.data.results;
+        this.characters = data.results;
       },
       (error) => {
         this.message.error(error.statusText + ' , tente novamente mais tarde!');
@@ -50,11 +51,11 @@ export class CharactersComponent implements OnInit {
     this.modalCharacter = this.modalService.create({
       nzContent,
       nzFooter: null,
-      nzWidth: '43.188rem',
+      nzWidth: '740px',
       nzMaskClosable: false,
       nzStyle: {
         'box-shadow': '0px 0px 8px rgba(0, 0, 0, 0.2)',
-        'border-radius': '8px',
+        'border-radius': '22px',
       },
       nzComponentParams: {
         character,

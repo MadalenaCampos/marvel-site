@@ -60,8 +60,9 @@ export class CharactersComponent implements OnInit {
         this.characters = data.results;
         this.charactersFilter = data.results;
       },
-      (error) => {
-        this.message.error(error.statusText + ' , tente novamente mais tarde!');
+      ({ error }) => {
+        console.log(error);
+        this.message.error(error.code + ' - ' + error.status);
       },
       () => {
         this.loadingCharacters = false;

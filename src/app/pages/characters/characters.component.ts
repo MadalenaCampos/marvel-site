@@ -24,6 +24,10 @@ export class CharactersComponent implements OnInit {
   public loadingCharacters = false;
   public characters!: any;
   private modalCharacter!: NzModalRef;
+  // Paginação
+  public pageIndex = 1;
+  public offset = 0;
+  public limit = 20;
 
   constructor(
     private charactersService: CharactersService,
@@ -31,11 +35,16 @@ export class CharactersComponent implements OnInit {
     private modalService: NzModalService
   ) {}
 
-  public getCharacters(): void {
+  public pageChange(event: any): void {
+    this.pageIndex = event;
+    const offset = (this.pageIndex - 1) * this.limit;
+    this.getCharacters(this.limit, offset);
+  }
+
+  public getCharacters(limit: number, offset: number): void {
     this.loadingCharacters = true;
-    this.charactersService.getAllCharacters().subscribe(
+    this.charactersService.getAllCharacters(limit, offset).subscribe(
       ({ data }) => {
-        this.message.success('Personagens carregados com sucesso!');
         this.characters = data.results;
       },
       (error) => {
@@ -68,6 +77,6 @@ export class CharactersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCharacters();
+    this.getCharacters(this.limit, this.offset);
   }
 }

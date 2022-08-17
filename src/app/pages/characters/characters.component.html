@@ -13,6 +13,13 @@
   </div>
 </div>
 
+<nz-pagination
+  [(nzPageIndex)]="pageIndex"
+  [nzPageSize]="20"
+  [nzTotal]="1562"
+  (nzPageIndexChange)="pageChange($event)"
+></nz-pagination>
+
 <div class="lista-de-personangens">
   <div class="lista-de-personangens-item" *ngFor="let item of characters">
     <div class="lista-de-personangens-item-imagem">
@@ -38,6 +45,13 @@
     </div>
   </div>
 </div>
+
+<nz-pagination
+  [(nzPageIndex)]="pageIndex"
+  [nzPageSize]="20"
+  [nzTotal]="1562"
+  (nzPageIndexChange)="pageChange($event)"
+></nz-pagination>
 
 <div class="loading">
   <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>

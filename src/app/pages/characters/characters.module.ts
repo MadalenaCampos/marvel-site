@@ -18,6 +18,7 @@ import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzMessageModule, NzMessageService } from 'ng-zorro-antd/message';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 
 const icons: IconDefinition[] = [AccountBookFill, AlertOutline, AlertFill];
 
@@ -33,6 +34,7 @@ const icons: IconDefinition[] = [AccountBookFill, AlertOutline, AlertFill];
     NzButtonModule,
     NzMessageModule,
     NzSpinModule,
+    NzPaginationModule
   ],
   providers: [NzMessageService, CharactersService],
 })

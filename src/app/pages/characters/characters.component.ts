@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
+import { debounce } from 'rxjs';
 import { CharacterDetailComponent } from 'src/app/modals/character-detail/character-detail.component';
 
 import { CharactersService } from 'src/app/services/characters/characters.service';
@@ -23,7 +24,9 @@ interface Character {
 export class CharactersComponent implements OnInit {
   public loadingCharacters = false;
   public characters!: any;
-  private modalCharacter!: NzModalRef;
+  public charactersFilter!: any;
+  public modalCharacter!: NzModalRef;
+
   // Paginação
   public pageIndex = 1;
   public offset = 0;
@@ -34,6 +37,15 @@ export class CharactersComponent implements OnInit {
     private message: NzMessageService,
     private modalService: NzModalService
   ) {}
+
+  public search(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    const value = target.value;
+
+    this.charactersFilter = this.characters.filter((character: any) =>
+      character.name.toLowerCase().includes(value)
+    );
+  }
 
   public pageChange(event: any): void {
     this.pageIndex = event;
@@ -46,6 +58,7 @@ export class CharactersComponent implements OnInit {
     this.charactersService.getAllCharacters(limit, offset).subscribe(
       ({ data }) => {
         this.characters = data.results;
+        this.charactersFilter = data.results;
       },
       (error) => {
         this.message.error(error.statusText + ' , tente novamente mais tarde!');

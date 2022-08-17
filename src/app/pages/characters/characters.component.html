@@ -3,8 +3,10 @@
   <div class="header-personangens-barra-de-busca">
     <nz-input-group nzSize="large" [nzSuffix]="suffixIcon">
       <input
-        placeholder="Informe o nome do personagem que deseja encontrar"
         nz-input
+        type="text"
+        placeholder="Informe o nome do personagem que deseja encontrar"
+        (input)="search($event)"
       />
     </nz-input-group>
     <ng-template #suffixIcon>
@@ -21,7 +23,7 @@
 ></nz-pagination>
 
 <div class="lista-de-personangens">
-  <div class="lista-de-personangens-item" *ngFor="let item of characters">
+  <div class="lista-de-personangens-item" *ngFor="let item of charactersFilter">
     <div class="lista-de-personangens-item-imagem">
       <img
         src="{{ item.thumbnail.path }}.{{ item.thumbnail.extension }}"

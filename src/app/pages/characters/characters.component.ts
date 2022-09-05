@@ -28,9 +28,10 @@ export class CharactersComponent implements OnInit {
   public modalCharacter!: NzModalRef;
 
   // Paginação
+  public total!: number;
   public pageIndex = 1;
   public offset = 0;
-  public limit = 20;
+  public limit = 100;
 
   constructor(
     private charactersService: CharactersService,
@@ -57,6 +58,7 @@ export class CharactersComponent implements OnInit {
     this.loadingCharacters = true;
     this.charactersService.getAllCharacters(limit, offset).subscribe(
       ({ data }) => {
+        this.total = data.total;
         this.characters = data.results;
         this.charactersFilter = data.results;
       },
@@ -70,7 +72,7 @@ export class CharactersComponent implements OnInit {
     );
   }
 
-  public abrirModal(nzContent: any, character?: Character): void {
+  public openModal(nzContent: any, character?: Character): void {
     this.modalCharacter = this.modalService.create({
       nzContent,
       nzFooter: null,
@@ -87,7 +89,7 @@ export class CharactersComponent implements OnInit {
   }
 
   public getCharacterDetail(character: Character): void {
-    this.abrirModal(CharacterDetailComponent, character);
+    this.openModal(CharacterDetailComponent, character);
   }
 
   ngOnInit(): void {

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CharactersService {
-  PUBLIC_KEY = ''; // Use sua PUBLIC_KEY aqui!!!
+  PUBLIC_KEY = '3347647ad69d2b89ca5e6efd59a0375f'; // Use sua PUBLIC_KEY aqui!!!
   HASH = '';
   URL_API = `https://gateway.marvel.com:443/v1/public/characters`;
 

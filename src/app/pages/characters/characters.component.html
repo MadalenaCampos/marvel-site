@@ -12,15 +12,33 @@
     <ng-template #suffixIcon>
       <i nz-icon nzType="search"></i>
     </ng-template>
+    <div class="header-personangens-barra-de-busca-aviso">
+      <i nz-icon nzType="info-circle" nzTheme="fill"></i>
+      <p>
+        Devido a alguns limites impostos pela Marvel, só é possível a pesquisa
+        por página!! <br />
+        Faça um pesquisa em cada página.
+      </p>
+    </div>
   </div>
 </div>
 
 <nz-pagination
   [(nzPageIndex)]="pageIndex"
-  [nzPageSize]="20"
-  [nzTotal]="1562"
+  [nzPageSize]="limit"
+  [nzTotal]="total"
   (nzPageIndexChange)="pageChange($event)"
 ></nz-pagination>
+
+<div class="loading">
+  <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
+  <nz-spin
+    nzSimple
+    [nzIndicator]="indicatorTemplate"
+    [nzSpinning]="loadingCharacters"
+  >
+  </nz-spin>
+</div>
 
 <div class="lista-de-personangens">
   <div class="lista-de-personangens-item" *ngFor="let item of charactersFilter">
@@ -50,17 +68,7 @@
 
 <nz-pagination
   [(nzPageIndex)]="pageIndex"
-  [nzPageSize]="20"
-  [nzTotal]="1562"
+  [nzPageSize]="limit"
+  [nzTotal]="total"
   (nzPageIndexChange)="pageChange($event)"
 ></nz-pagination>
-
-<div class="loading">
-  <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
-  <nz-spin
-    nzSimple
-    [nzIndicator]="indicatorTemplate"
-    [nzSpinning]="loadingCharacters"
-  >
-  </nz-spin>
-</div>

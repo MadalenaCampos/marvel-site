@@ -21,9 +21,12 @@
 - [x] Página Home
 - [x] Página de Personagens
 - [x] Modal com Detalhe de cada personangem
-- [ ] Paginação para a exibição de personagens
-- [ ] Barra de busca dos Personagens
+- [x] Paginação para a exibição de personagens
+- [x] Barra de busca dos Personagens
 - [ ] Página de Comics
+- [ ] Modal com Detalhe de cada Comics
+- [ ] Paginação para a exibição de Comics
+- [ ] Barra de busca dos Comics
 - [ ] Página de Séries
 - [ ] Página de Histórias
 

@@ -27,6 +27,7 @@
 - [ ] Modal com Detalhe de cada Comics
 - [ ] Paginação para a exibição de Comics
 - [ ] Barra de busca dos Comics
+- [ ] FAZER ATUALIZAÇÃO DO VISUAL DO SITE
 - [ ] Página de Séries
 - [ ] Página de Histórias
 

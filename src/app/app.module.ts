@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HomeModule } from './pages/home/home.module';
 import { CharactersModule } from './pages/characters/characters.module';
+import { ComicsModule } from './pages/comics/comics.module';
 
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
@@ -39,6 +40,7 @@ const icons: IconDefinition[] = [AccountBookFill, AlertOutline, AlertFill];
     BrowserAnimationsModule,
     HomeModule,
     CharactersModule,
+    ComicsModule,
 
     // Módulos do NgZorro
     NzIconModule,

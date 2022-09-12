@@ -21,8 +21,8 @@ interface Character {
   styleUrls: ['./home.component.less'],
 })
 export class HomeComponent implements OnInit {
-  public characters!: any;
-  public modalCharacter!: NzModalRef;
+  public personagens!: any;
+  public modalDePersonagem!: NzModalRef;
 
   constructor(
     private router: Router,
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
     this.charactersService.getAllCharacters(3, offsetAleatorio).subscribe(
       ({ data }) => {
-        this.characters = data.results;
+        this.personagens = data.results;
       },
       ({ error }) => {
         this.message.error(error.code + ' - ' + error.status);
@@ -44,8 +44,8 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  public openModal(nzContent: any, character?: Character): void {
-    this.modalCharacter = this.modalService.create({
+  public abrirModal(nzContent: any, character?: Character): void {
+    this.modalDePersonagem = this.modalService.create({
       nzContent,
       nzFooter: null,
       nzWidth: '740px',
@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
   }
 
   public getInformacoesDoPersoangem(character: Character): void {
-    this.openModal(CharacterDetailComponent, character);
+    this.abrirModal(CharacterDetailComponent, character);
   }
 
   public irParaPersonagens() {

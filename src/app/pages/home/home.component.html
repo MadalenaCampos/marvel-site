@@ -1,16 +1,57 @@
-<div class="imagem-de-apresentacao">
-  <img style="width: 100%" src="assets/images/personagens-marvel.svg" />
-  <div class="imagem-de-apresentacao-credito">
-    <p>Foto: Marvel</p>
-  </div>
-</div>
+<div class="home">
+  <div class="home-informacoes">
+    <div class="home-informacoes-apresentacao">
+      <h1>OS MELHORES PERSONAGENS FEITOS EM QUADRINHO</h1>
+      <p>
+        A Marvel Comics é uma editora norte-americana de mídias relacionadas.
+        Hoje a Marvel Comics é considerada a maior editora de histórias em
+        quadrinhos do mundo.
+      </p>
+      <a
+        href="https://www.marvel.com/unlimited?cid=SEM_Google_20200302_unlimited_Brand&gclid=CjwKCAjwsfuYBhAZEiwA5a6CDG5R4oT74e4BnsXMKlCrSt24-DOF-VmcGgu1-ZkhBlOTjy0GvRNl8xoCXKcQAvD_BwE"
+        ><img src="assets/images/link.svg" alt="homem aranha" />Marvel
+        Unlimited</a
+      >
+    </div>
 
-<div class="mensagem-da-autora">
-  <p>
-    Esse site foi criado por <span>Madalena Campos</span>, para fins de estudo.
-    Todas as informações coletadas estão disponível na
-    <span>API da Marvel</span>. Tem alguma sugestão de melhoria? Envie um e-mail
-    para <span>madacampos02@gmail.com</span> ou acesse o projeto via
-    <span>github</span> e envie suas sugestões.
-  </p>
+    <div class="home-informacoes-personagens">
+      <div class="home-informacoes-personagens-header">
+        <h1>Personagens</h1>
+        <p>
+          Confira a lista completa com todos os personagens já apresentados no
+          MCU
+        </p>
+      </div>
+      <div class="home-informacoes-personagens-opcoes">
+        <div
+          class="home-informacoes-personagens-opcoes-item"
+          *ngFor="let character of characters"
+        >
+          <img
+            src="{{ character.thumbnail.path }}.{{
+              character.thumbnail.extension
+            }}"
+            [alt]="character.name"
+          />
+          <div class="home-informacoes-personagens-opcoes-item-footer">
+            <p nz-tooltip [nzTooltipTitle]="character.name">
+              {{ character.name }}
+            </p>
+            <img
+              src="assets/images/mais.svg"
+              alt="mais informações"
+              (click)="getInformacoesDoPersoangem(this.character)"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="home-informacoes-personagens-ver-outros">
+        <button nz-button (click)="irParaPersonagens()">Ver outros</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-homem-aranha">
+    <img src="assets/images/homem-aranha.svg" alt="homem aranha" />
+  </div>
 </div>

@@ -11,7 +11,6 @@ export class ComicsComponent implements OnInit {
   public loadingQuadrinhos = false;
 
   public quadrinhos!: any;
-  public quadrinhosFiltrados!: any;
 
   public total!: number;
   public pageIndex = 1;
@@ -29,22 +28,12 @@ export class ComicsComponent implements OnInit {
     this.getQuadrinhos(this.limit, offset);
   }
 
-  public filtrarQuadrinhos(e: Event): void {
-    const target = e.target as HTMLInputElement;
-    const value = target.value;
-
-    this.quadrinhosFiltrados = this.quadrinhos.filter((character: any) => {
-      character.name.toLowerCase().includes(value);
-    });
-  }
-
   public getQuadrinhos(limit: number, offset: number) {
     this.loadingQuadrinhos = true;
     this.comicsService.getAllComics(limit, offset).subscribe(
       ({ data }) => {
         this.total = data.total;
         this.quadrinhos = data.results;
-        this.quadrinhosFiltrados = data.results;
 
         console.log(data);
       },

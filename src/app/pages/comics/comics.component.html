@@ -1,1 +1,49 @@
-<p>comics works!</p>
+<div class="header">
+  <div class="header-titulo">
+    <h1>Quadrinhos</h1>
+    <p>Conheça o catalogo de quadrinhos disponíveis no MCU.</p>
+  </div>
+</div>
+
+<div class="paginacao">
+  <nz-pagination
+    [(nzPageIndex)]="pageIndex"
+    [nzPageSize]="limit"
+    [nzTotal]="total"
+    (nzPageIndexChange)="mudarPagina($event)"
+  ></nz-pagination>
+</div>
+
+<div class="loading">
+  <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
+  <nz-spin
+    nzSimple
+    [nzIndicator]="indicatorTemplate"
+    [nzSpinning]="loadingQuadrinhos"
+  >
+  </nz-spin>
+</div>
+
+<div class="lista-de-quadrinhos">
+  <div class="lista-de-quadrinhos-item" *ngFor="let quadrinho of quadrinhos">
+    <h1 nz-tooltip [nzTooltipTitle]="quadrinho.title">{{ quadrinho.title }}</h1>
+    <img
+      src="{{ quadrinho.thumbnail.path }}.{{ quadrinho.thumbnail.extension }}"
+      [alt]="quadrinho.title"
+    />
+    <div class="lista-de-quadrinhos-item-paginas">
+      <p>
+        <b>{{ quadrinho.pageCount || "Não temos a quantidade de" }}</b> páginas
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="paginacao">
+  <nz-pagination
+    [(nzPageIndex)]="pageIndex"
+    [nzPageSize]="limit"
+    [nzTotal]="total"
+    (nzPageIndexChange)="mudarPagina($event)"
+  ></nz-pagination>
+</div>

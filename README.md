@@ -25,14 +25,11 @@
 - [x] Paginação para a exibição de personagens
 - [x] Barra de busca dos Personagens
 
-- [ ] FAZER ATUALIZAÇÃO DO VISUAL DO SITE
+- [x] FAZER ATUALIZAÇÃO DO VISUAL DO SITE
 
-- [ ] Página de Comics
-- [ ] Modal com Detalhe de cada Comics
-- [ ] Paginação para a exibição de Comics
-- [ ] Barra de busca dos Comics
+- [x] Página de Comics
+- [x] Paginação para a exibição de Comics
 - [ ] Página de Séries
-- [ ] Página de Histórias
 
 ## Download
 

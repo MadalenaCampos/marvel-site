@@ -6,7 +6,7 @@
 
     i {
       font-size: 64px;
-      color: #c4332d !important;
+      color: #ed1d24 !important;
     }
   }
 
@@ -27,92 +27,97 @@
   }
 }
 
-.header-personangens {
+.header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 
-  h1 {
-    margin: 0;
-    font-weight: 600;
-    font-size: 32px;
-    color: #ffffff;
-    text-shadow: 0px 4px 4px rgba(237, 29, 36, 0.52);
+  &-titulo {
+    h1 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 32px;
+      color: #ffffff;
+    }
+    p {
+      margin: 0;
+      color: #ffffff;
+      font-size: 16px;
+      color: #ffffff;
+    }
   }
 
   &-barra-de-busca {
     nz-input-group {
+      width: 500px;
       border-radius: 5px;
       border-color: #ffffff;
       background-color: #060606;
 
       input {
-        color: #ffffff;
         background-color: #060606;
+        color: #ffffff;
       }
 
       i {
         color: #ffffff;
       }
     }
-
-    &-aviso {
-      margin-top: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: #c4332d;
-
-      p {
-        margin: 0;
-      }
-    }
   }
 }
 
+.paginacao {
+  margin: 16px 0;
+}
+
 .lista-de-personangens {
-  margin-top: 16px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 80px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
   align-items: center;
   justify-items: center;
 
   &-item {
+    width: 280px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+
     &-imagem {
       img {
-        width: 300px;
-        height: 300px;
-        border-radius: 22px;
+        width: 264px;
+        height: 264px;
       }
     }
 
-    &-sobre {
-      margin-top: 16px;
+    &-footer {
+      margin-top: 8px;
+      width: 100%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 8px;
+      justify-content: space-between;
+      gap: 5px;
 
-      &-nome {
-        h2 {
-          margin: 0;
-          font-weight: 700;
-          font-size: 18px;
-          color: #ffffff;
-        }
+      p {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: #ffffff;
+
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
-      &-detalhes {
-        button {
-          border: none;
-          background: #ed1d24;
-
-          font-size: 12px;
-          font-weight: 600;
-          color: #ffffff;
-        }
+      img {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
       }
     }
   }

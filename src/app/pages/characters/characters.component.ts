@@ -22,12 +22,11 @@ interface Character {
   styleUrls: ['./characters.component.less'],
 })
 export class CharactersComponent implements OnInit {
-  public loadingCharacters = false;
-  public characters!: any;
-  public charactersFilter!: any;
-  public modalCharacter!: NzModalRef;
+  public loadingPersonagens = false;
+  public personagens!: any;
+  public personagemFiltrado!: any;
+  public modalDoPersonagem!: NzModalRef;
 
-  // Paginação
   public total!: number;
   public pageIndex = 1;
   public offset = 0;
@@ -39,41 +38,41 @@ export class CharactersComponent implements OnInit {
     private modalService: NzModalService
   ) {}
 
-  public search(e: Event): void {
+  public filtrarPersonagens(e: Event): void {
     const target = e.target as HTMLInputElement;
     const value = target.value;
 
-    this.charactersFilter = this.characters.filter((character: any) =>
-      character.name.toLowerCase().includes(value)
-    );
+    this.personagemFiltrado = this.personagens.filter((character: any) => {
+      character.name.toLowerCase().includes(value);
+    });
   }
 
-  public pageChange(event: any): void {
+  public mudarPagina(event: any): void {
     this.pageIndex = event;
     const offset = (this.pageIndex - 1) * this.limit;
-    this.getCharacters(this.limit, offset);
+    this.getPersonagens(this.limit, offset);
   }
 
-  public getCharacters(limit: number, offset: number): void {
-    this.loadingCharacters = true;
+  public getPersonagens(limit: number, offset: number): void {
+    this.loadingPersonagens = true;
     this.charactersService.getAllCharacters(limit, offset).subscribe(
       ({ data }) => {
         this.total = data.total;
-        this.characters = data.results;
-        this.charactersFilter = data.results;
+        this.personagens = data.results;
+        this.personagemFiltrado = data.results;
       },
       ({ error }) => {
         console.log(error);
         this.message.error(error.code + ' - ' + error.status);
       },
       () => {
-        this.loadingCharacters = false;
+        this.loadingPersonagens = false;
       }
     );
   }
 
-  public openModal(nzContent: any, character?: Character): void {
-    this.modalCharacter = this.modalService.create({
+  public abrirModal(nzContent: any, character?: Character): void {
+    this.modalDoPersonagem = this.modalService.create({
       nzContent,
       nzFooter: null,
       nzWidth: '740px',
@@ -88,11 +87,11 @@ export class CharactersComponent implements OnInit {
     });
   }
 
-  public getCharacterDetail(character: Character): void {
-    this.openModal(CharacterDetailComponent, character);
+  public getInformacoesDoPersonagem(character: Character): void {
+    this.abrirModal(CharacterDetailComponent, character);
   }
 
   ngOnInit(): void {
-    this.getCharacters(this.limit, this.offset);
+    this.getPersonagens(this.limit, this.offset);
   }
 }

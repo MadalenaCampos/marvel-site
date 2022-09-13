@@ -19,6 +19,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzMessageModule, NzMessageService } from 'ng-zorro-antd/message';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 const icons: IconDefinition[] = [AccountBookFill, AlertOutline, AlertFill];
 
@@ -34,7 +36,9 @@ const icons: IconDefinition[] = [AccountBookFill, AlertOutline, AlertFill];
     NzButtonModule,
     NzMessageModule,
     NzSpinModule,
-    NzPaginationModule
+    NzPaginationModule,
+    NzAlertModule,
+    NzToolTipModule,
   ],
   providers: [NzMessageService, CharactersService],
 })

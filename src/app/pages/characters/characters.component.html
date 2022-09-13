@@ -1,33 +1,38 @@
-<div class="header-personangens">
-  <h1>Characters Marvel</h1>
-  <div class="header-personangens-barra-de-busca">
+<nz-alert
+  class="aviso-de-pesquisa"
+  nzBanner
+  nzCloseable
+  nzMessage="Devido a alguns limites impostos pela API Marvel, só é possível a pesquisa por página. Por favor, faça uma pesquisa em cada página."
+></nz-alert>
+
+<div class="header">
+  <div class="header-titulo">
+    <h1>Personagens</h1>
+    <p>
+      Confira a lista completa com todos os personagens já apresentados no MCU.
+    </p>
+  </div>
+  <div class="header-barra-de-busca">
     <nz-input-group nzSize="large" [nzSuffix]="suffixIcon">
       <input
         nz-input
         type="text"
-        placeholder="Informe o nome do personagem que deseja encontrar"
-        (input)="search($event)"
+        placeholder="Informe o nome do personagem..."
+        (input)="filtrarPersonagens($event)"
       />
     </nz-input-group>
     <ng-template #suffixIcon>
       <i nz-icon nzType="search"></i>
     </ng-template>
-    <div class="header-personangens-barra-de-busca-aviso">
-      <i nz-icon nzType="info-circle" nzTheme="fill"></i>
-      <p>
-        Devido a alguns limites impostos pela Marvel, só é possível a pesquisa
-        por página!! <br />
-        Faça um pesquisa em cada página.
-      </p>
-    </div>
   </div>
 </div>
 
 <nz-pagination
+  class="paginacao"
   [(nzPageIndex)]="pageIndex"
   [nzPageSize]="limit"
   [nzTotal]="total"
-  (nzPageIndexChange)="pageChange($event)"
+  (nzPageIndexChange)="mudarPagina($event)"
 ></nz-pagination>
 
 <div class="loading">
@@ -35,40 +40,37 @@
   <nz-spin
     nzSimple
     [nzIndicator]="indicatorTemplate"
-    [nzSpinning]="loadingCharacters"
+    [nzSpinning]="loadingPersonagens"
   >
   </nz-spin>
 </div>
 
 <div class="lista-de-personangens">
-  <div class="lista-de-personangens-item" *ngFor="let item of charactersFilter">
+  <div
+    class="lista-de-personangens-item"
+    *ngFor="let character of personagemFiltrado"
+  >
     <div class="lista-de-personangens-item-imagem">
       <img
-        src="{{ item.thumbnail.path }}.{{ item.thumbnail.extension }}"
-        [alt]="item.name"
+        src="{{ character.thumbnail.path }}.{{ character.thumbnail.extension }}"
+        [alt]="character.name"
       />
     </div>
-    <div class="lista-de-personangens-item-sobre">
-      <div class="lista-de-personangens-item-sobre-nome">
-        <h2>{{ item.name }}</h2>
-      </div>
-
-      <div class="lista-de-personangens-item-sobre-detalhes">
-        <button
-          (click)="this.getCharacterDetail(this.item)"
-          nz-button
-          nzShape="round"
-        >
-          Detalhes
-        </button>
-      </div>
+    <div class="lista-de-personangens-item-footer">
+      <p nz-tooltip [nzTooltipTitle]="character.name">{{ character.name }}</p>
+      <img
+        src="assets/images/mais.svg"
+        alt="mais informações"
+        (click)="getInformacoesDoPersonagem(this.character)"
+      />
     </div>
   </div>
 </div>
 
 <nz-pagination
+  class="paginacao"
   [(nzPageIndex)]="pageIndex"
   [nzPageSize]="limit"
   [nzTotal]="total"
-  (nzPageIndexChange)="pageChange($event)"
+  (nzPageIndexChange)="mudarPagina($event)"
 ></nz-pagination>

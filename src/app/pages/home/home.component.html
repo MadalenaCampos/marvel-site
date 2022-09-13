@@ -22,6 +22,19 @@
           MCU
         </p>
       </div>
+
+      <div class="loading">
+        <ng-template #indicatorTemplate
+          ><i nz-icon nzType="loading"></i
+        ></ng-template>
+        <nz-spin
+          nzSimple
+          [nzIndicator]="indicatorTemplate"
+          [nzSpinning]="loadingPersonagens"
+        >
+        </nz-spin>
+      </div>
+
       <div class="home-informacoes-personagens-opcoes">
         <div
           class="home-informacoes-personagens-opcoes-item"

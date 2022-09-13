@@ -23,6 +23,7 @@ interface Character {
 export class HomeComponent implements OnInit {
   public personagens!: any;
   public modalDePersonagem!: NzModalRef;
+  public loadingPersonagens = false;
 
   constructor(
     private router: Router,
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   public getPersonagens() {
+    this.loadingPersonagens = true;
     const offsetAleatorio = Math.floor(Math.random() * 520);
 
     this.charactersService.getAllCharacters(3, offsetAleatorio).subscribe(
@@ -40,6 +42,9 @@ export class HomeComponent implements OnInit {
       },
       ({ error }) => {
         this.message.error(error.code + ' - ' + error.status);
+      },
+      () => {
+        this.loadingPersonagens = false;
       }
     );
   }

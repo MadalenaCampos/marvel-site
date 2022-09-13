@@ -6,19 +6,25 @@
     />
   </div>
   <div class="informacoes-do-personagem-nome-descricao">
-    <h2>{{ character.name }}</h2>
-    <p>{{ character.description || "There is no description!" }}</p>
+    <h1>{{ character.name }}</h1>
+    <p>
+      {{
+        character.description ||
+          "Não há palavras para descrever esse(a) personagem!"
+      }}
+    </p>
   </div>
 </div>
 
 <div class="comics-do-personagem">
-  <h1>Comics</h1>
+  <h1>Quadrinhos</h1>
+  <p>Esses são só alguns dos quadrinhos que esse(a) personagem faz parte.</p>
 
   <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
   <nz-spin
     nzSimple
     [nzIndicator]="indicatorTemplate"
-    [nzSpinning]="loadingCharacterComics"
+    [nzSpinning]="loadingQuadrinhosDoPersonagem"
   >
   </nz-spin>
 
@@ -34,13 +40,15 @@
         />
       </div>
       <div class="comics-do-personagem-lista-item-titulo">
-        <p>{{ item.title }}</p>
+        <p nz-tooltip [nzTooltipTitle]="item.title">{{ item.title }}</p>
       </div>
     </div>
 
     <div class="comics-do-personagem-lista-nao-ha-comics" *ngIf="naoHaComics">
       <i nz-icon nzType="info-circle" nzTheme="outline"></i>
-      <p>Oh não! Esse personagem não tem participação em nenhum comic!</p>
+      <p>
+        Oh não! Esse(a) personagem não tem participação em nenhum quadrinho!
+      </p>
     </div>
   </div>
 </div>

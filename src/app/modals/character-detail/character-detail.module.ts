@@ -10,13 +10,13 @@ import {
   AlertFill,
   AlertOutline,
 } from '@ant-design/icons-angular/icons';
-import { CharactersService } from 'src/app/services/characters/characters.service';
 
 const icons: IconDefinition[] = [AccountBookFill, AlertOutline, AlertFill];
 
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzMessageModule, NzMessageService } from 'ng-zorro-antd/message';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 @NgModule({
   declarations: [CharacterDetailComponent],
@@ -27,6 +27,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
     NzModalModule,
     NzMessageModule,
     NzSpinModule,
+    NzToolTipModule,
   ],
   providers: [NzMessageService],
 })

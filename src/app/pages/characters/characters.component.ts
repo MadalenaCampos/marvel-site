@@ -77,10 +77,6 @@ export class CharactersComponent implements OnInit {
       nzFooter: null,
       nzWidth: '740px',
       nzMaskClosable: false,
-      nzStyle: {
-        'box-shadow': '0px 0px 8px rgba(0, 0, 0, 0.2)',
-        'border-radius': '22px',
-      },
       nzComponentParams: {
         character,
       },

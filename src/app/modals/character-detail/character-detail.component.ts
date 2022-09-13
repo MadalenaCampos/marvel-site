@@ -21,7 +21,7 @@ interface Character {
 export class CharacterDetailComponent implements OnInit {
   public character!: Character;
 
-  public loadingCharacterComics = false;
+  public loadingQuadrinhosDoPersonagem = false;
   public naoHaComics = false;
   public characterComics!: any;
 
@@ -31,12 +31,12 @@ export class CharacterDetailComponent implements OnInit {
     private message: NzMessageService
   ) {}
 
-  public getCharacterComics() {
-    this.loadingCharacterComics = true;
+  public getQuadrinhosDoPersonagem() {
+    this.loadingQuadrinhosDoPersonagem = true;
     this.charactersService.getCharacterComicsById(this.character.id).subscribe(
       ({ data }) => {
+        console.log(data);
         this.characterComics = data.results;
-        this.message.success('Comics carregados com sucesso!');
 
         if (!data.results.length) {
           this.naoHaComics = true;
@@ -46,12 +46,12 @@ export class CharacterDetailComponent implements OnInit {
         this.message.error(error.statusText + ' , tente novamente mais tarde!');
       },
       () => {
-        this.loadingCharacterComics = false;
+        this.loadingQuadrinhosDoPersonagem = false;
       }
     );
   }
 
   ngOnInit(): void {
-    this.getCharacterComics();
+    this.getQuadrinhosDoPersonagem();
   }
 }

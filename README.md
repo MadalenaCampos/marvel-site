@@ -1,5 +1,7 @@
 <div>
-<img src="imagens-projeto/home.png" alt="Home do site" width="500">
+<img src="imagens-projeto/home.png" alt="home" width="500">
+<img src="imagens-projeto/persoangens.png" alt="personagens" width="500">
+<img src="imagens-projeto/quadrinhos.png" alt="quadrinhos" width="500">
 </div>
 
 # Marvel Site

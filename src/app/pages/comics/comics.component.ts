@@ -1,15 +1,64 @@
 import { Component, OnInit } from '@angular/core';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { ComicsService } from 'src/app/services/comics/comics.service';
 
 @Component({
   selector: 'app-comics',
   templateUrl: './comics.component.html',
-  styleUrls: ['./comics.component.less']
+  styleUrls: ['./comics.component.less'],
 })
 export class ComicsComponent implements OnInit {
+  public loadingQuadrinhos = false;
 
-  constructor() { }
+  public quadrinhos!: any;
+  public quadrinhosFiltrados!: any;
 
-  ngOnInit(): void {
+  public total!: number;
+  public pageIndex = 1;
+  public offset = 0;
+  public limit = 100;
+
+  constructor(
+    private comicsService: ComicsService,
+    private message: NzMessageService
+  ) {}
+
+  public mudarPagina(event: any): void {
+    this.pageIndex = event;
+    const offset = (this.pageIndex - 1) * this.limit;
+    this.getQuadrinhos(this.limit, offset);
   }
 
+  public filtrarQuadrinhos(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    const value = target.value;
+
+    this.quadrinhosFiltrados = this.quadrinhos.filter((character: any) => {
+      character.name.toLowerCase().includes(value);
+    });
+  }
+
+  public getQuadrinhos(limit: number, offset: number) {
+    this.loadingQuadrinhos = true;
+    this.comicsService.getAllComics(limit, offset).subscribe(
+      ({ data }) => {
+        this.total = data.total;
+        this.quadrinhos = data.results;
+        this.quadrinhosFiltrados = data.results;
+
+        console.log(data);
+      },
+      ({ error }) => {
+        console.log(error);
+        this.message.error(error.code + ' - ' + error.status);
+      },
+      () => {
+        this.loadingQuadrinhos = false;
+      }
+    );
+  }
+
+  ngOnInit(): void {
+    this.getQuadrinhos(this.limit, this.offset);
+  }
 }
